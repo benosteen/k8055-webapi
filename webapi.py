@@ -21,7 +21,7 @@ class digitalout:
         if id:
             try:
                 id_no = int(id)
-                if id_no >= 0 or id_no <=8:
+                if id_no >= 0 or id_no <8:
                     if i.output == "json":
                         web.header('Content-Type', 'application/json')
                         return "{'D0%s':'%s'}" % (id_no, board.digital_outputs[id_no])
@@ -58,7 +58,7 @@ class digitalout:
         else:
             try:
                 id_no = int(id)
-                if id_no >= 0 or id_no <=8:
+                if id_no >= 0 or id_no <8:
                     i = web.input(id="Fail")
                     if i.id == "1":
                         board.digital_outputs[id_no] = 1
